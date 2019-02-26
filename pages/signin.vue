@@ -28,6 +28,12 @@
           <v-btn color="primary" @click="signin">Signin</v-btn>
         </v-card-actions>
       </v-card>
+      <v-textarea
+          outline
+          name="input-7-4"
+          label="Outline textarea"
+          v-model="response"
+        ></v-textarea>
     </v-flex>
   </v-layout>
 </template>
@@ -38,7 +44,8 @@ import firebase from "firebase";
 export default {
   data: () => ({
     email: "",
-    password: ""
+    password: "",
+    response: null
   }),
   mounted() {
     let CONFIG = {
@@ -52,6 +59,7 @@ export default {
       .getRedirectResult()
       .then(
         result => {
+          this.response = JSON.stringify(result);
           console.log("RESULT", result);
           let user = result.user;
           let credential = result.credential;
@@ -79,7 +87,8 @@ export default {
           // ...
         })
         .then(resp => {
-          console.log("RESP", resp);
+          this.response = this.response = JSON.stringify(resp);
+          console.log("result", resp);
         });
     },
     signup() {

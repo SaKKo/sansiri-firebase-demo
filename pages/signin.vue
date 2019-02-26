@@ -37,8 +37,8 @@ import firebase from "firebase";
 
 export default {
   data: () => ({
-    email: "saklism@gmail.com",
-    password: "qwertyuiop"
+    email: "",
+    password: ""
   }),
   mounted() {
     let CONFIG = {

@@ -13,6 +13,7 @@
             required
           ></v-text-field>
           <v-text-field
+            type="password"
             ref="password"
             v-model="password"
             label="password"
